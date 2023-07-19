@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sport360</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <style>
+    /* Agrega tu estilo CSS aquí */
+
+    .columna2 img {
+      width: 200px;
+      height: 150px;
+      border-radius: 10px;
+      transition: all 0.5s ease;
+    }
+
+    .columna2 img:hover {
+      transform: scale(1.2);
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(".columna2 img").hover(
+        function() {
+          $(this).addClass("enlarged");
+        },
+        function() {
+          $(this).removeClass("enlarged");
+        }
+      );
+    });
+  </script>
+</head>
+
+<body>
+  <!-- Resto del código HTML -->
+
+  <div class="col-lg-4 col-md-6 col-sm-12">
+    <div class="columna2 p-3 d-none d-sm-block">
+      <h3 class="text-center">LeBron: cada punto, en cada camiseta</h3>
+      <hr>
+      <center><img src="BASQUET/g.jpeg" alt="" class="img-fluid"></center>
+      <hr>
+      <p>
+        Las inagotable colección de camisetas con las que 'El Rey' hizo historia
+        LeBron James, el nuevo líder de anotaciones de todos los tiempos de la NBA, también podría ser el líder no
+        oficial de la NBA en apariencias únicas.
+      </p>
+    </div>
+  </div>
+
+</body>
+
+</html>
