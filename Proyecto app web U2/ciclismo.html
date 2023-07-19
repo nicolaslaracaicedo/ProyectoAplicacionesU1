@@ -13,6 +13,22 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
 
     <style>
+        .imagen-agrandable {
+            transition: all 0.3s ease;
+            cursor: zoom-in;
+        }
+
+        .imagen-agrandable.agrandada {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            max-width: 90vw;
+            max-height: 90vh;
+            cursor: zoom-out;
+        }
+
         .carousel-item img {
             width: 100%;
             height: auto;
@@ -238,13 +254,14 @@
                     <div class="card mb-3" style="max-width: 100%;">
                         <div class="row g-0 align-items-center">
                             <div class="col d-lg-block d-sm-block d-md-none" style="padding-left: 20px;">
-                                <img src="ciclismo/img\seccion1.webp" class="img-fluid rounded-start" alt="seecion1"
-                                    width="100%">
+                                <img src="ciclismo/img\seccion1.webp" class="img-fluid rounded-start imagen-agrandable"
+                                    alt="seecion1" width="100%">
                             </div>
                             <div class="col-md-4 d-lg-none d-none d-md-block ">
                                 <div class="col align-items-center">
-                                    <img src="ciclismo/img\seccion1.webp" class="img-fluid rounded-start "
-                                        alt="seecion1" width="900px" height="190px">
+                                    <img src="ciclismo/img\seccion1.webp"
+                                        class="img-fluid rounded-start imagen-agrandable" alt="seecion1" width="900px"
+                                        height="190px">
 
                                 </div>
                             </div>
@@ -308,7 +325,8 @@
                                 </div>
                             </div>
                             <div class="col-md-4">
-                                <img src="ciclismo/img\seccion2.webp" class="img-fluid rounded-start" alt="...">
+                                <img src="ciclismo/img\seccion2.webp" class="img-fluid rounded-start imagen-agrandable"
+                                    alt="...">
                             </div>
                         </div>
                     </div>
@@ -393,19 +411,19 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-       $(document).ready(function() {
-        // Función hover para la clase "imge-container"
-        $('.imge-container').hover(
-            function() {
-                $(this).find('img').css('transform', 'scale(1.1)');
-                $(this).find('img').css('box-shadow', '0 0 10px rgba(0, 0, 0, 0.5)');
-            },
-            function() {
-                $(this).find('img').css('transform', 'scale(1)');
-                $(this).find('img').css('box-shadow', 'none');
-            }
-        );
-    });
+        $(document).ready(function () {
+            // Función hover para la clase "imge-container"
+            $('.imge-container').hover(
+                function () {
+                    $(this).find('img').css('transform', 'scale(1.1)');
+                    $(this).find('img').css('box-shadow', '0 0 10px rgba(0, 0, 0, 0.5)');
+                },
+                function () {
+                    $(this).find('img').css('transform', 'scale(1)');
+                    $(this).find('img').css('box-shadow', 'none');
+                }
+            );
+        });
 
         $(document).ready(function () {
             $('#carouselExampleDark').carousel(); // Inicializar el carrusel
@@ -420,7 +438,16 @@
             });
         });
 
-
+        $(document).ready(function () {
+            $('#imagenPrincipal').click(function () {
+                $(this).toggleClass('agrandada');
+            });
+        });
+        $(document).ready(function () {
+            $('.imagen-agrandable').click(function () {
+                $(this).toggleClass('agrandada');
+            });
+        });
     </script>
 
 </body>
