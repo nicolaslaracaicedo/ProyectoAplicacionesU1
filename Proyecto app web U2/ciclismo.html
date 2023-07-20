@@ -75,44 +75,45 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="footer.html">
-                        <center>
+                        
                             <h5>Home</h5>
-                        </center>
+                      
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="UFC.html">
-                        <center>
+                    
                             <h5>UFC</h5>
-                        </center>
+                       
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Futbol.html">
-                        <center>
+                       
                             <h5>Futbol</h5>
-                        </center>
+                      
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Basquet.html">
-                        <center>
+                       
                             <h5>Basquet</h5>
-                        </center>
+                       
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="ciclismo.html">
-                        <center>
+                       
                             <h5>Ciclismo</h5>
-                        </center>
+                       
                     </a>
                 </li>
                 <li class="nav-item ml-2">
-                    <a href="formulario.html"><button class="btn btn-primary">Suscríbete</button></a>
+                   <center><a href="formulario.html"><button class="btn btn-primary">Suscríbete</button></a></center> 
                 </li>
+                <br>
                 <li class="nav-item ml-2">
-                    <button class="btn btn-danger">Iniciar Sesión</button>
+                   <center> <button class="btn btn-danger">Iniciar Sesión</button></center>
                 </li>
             </ul>
         </div>
@@ -448,6 +449,15 @@
                 $(this).toggleClass('agrandada');
             });
         });
+        $(document).ready(function() {
+        $('.caja img').on('mouseenter', function() {
+          $(this).css('transform', 'scale(1.1)');
+        });
+
+        $('.caja img').on('mouseleave', function() {
+          $(this).css('transform', '');
+        });
+      });
     </script>
 
 </body>

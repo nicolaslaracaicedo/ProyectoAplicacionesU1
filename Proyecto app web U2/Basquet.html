@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <style>
     body {
-      background-color: #e2dbdb;
+      background-color: #fcfbfb;
     }
 
     .navbar {
@@ -189,7 +189,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="UFC.html">
+          <a class="nav-link" href="index2.html">
            <center><h5>UFC</h5></center>
           </a>
         </li>
@@ -455,18 +455,28 @@
     });
   </script>
 
-  <script>
-    $(document).ready(function() {
-      $("#animated-image").hover(
-        function() {
-          $(this).fadeOut(2000);
-        },
-        function() {
-          $(this).fadeIn(2000);
-        }
-      );
-    });
-  </script>
+<script>
+  $(document).ready(function() {
+    // Define la URL de la nueva imagen que quieres mostrar
+    const nuevaUrlImagen = "BASQUET/animaim.png";
+
+    // Función para actualizar la fuente de la imagen y hacer que aparezca nuevamente con fadeIn
+    function actualizarFuenteImagenYAparecer() {
+      $("#animated-image").attr("src", nuevaUrlImagen);
+      $("#animated-image").fadeIn(2000);
+    }
+
+    // Efecto hover para la animación de desaparecer y reaparecer
+    $("#animated-image").hover(
+      function() {
+        $(this).fadeOut(2000, actualizarFuenteImagenYAparecer);
+      },
+      function() {
+        // No necesitamos hacer nada aquí, ya que el fadeIn se maneja en la función actualizarFuenteImagenYAparecer
+      }
+    );
+  });
+</script>
   
   <script>
     $(document).ready(function() {

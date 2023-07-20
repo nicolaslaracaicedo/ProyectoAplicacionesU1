@@ -9,18 +9,28 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="JS/jQuery v3.7.0.js"></script>
   <script>
+   $(document).ready(function() {
+  $('.ver-mas').click(function() {
+    var cardText = $(this).closest('.card-body').find('.card-text');
+    var duration = 1000; 
+    cardText.slideToggle(duration);
+
+    if ($(this).text() === 'Ver más') {
+      $(this).text('Ver menos');
+    } else {
+      $(this).text('Ver más');
+    }
+  });
+})
     $(document).ready(function() {
-      $('.ver-mas').click(function() {
-        var cardText = $(this).closest('.card-body').find('.card-text');
-        cardText.slideToggle();
-    
-        if ($(this).text() === 'Ver más') {
-          $(this).text('Ver menos');
-        } else {
-          $(this).text('Ver más');
-        }
+        $('.caja img').on('mouseenter', function() {
+          $(this).css('transform', 'scale(1.1)');
+        });
+
+        $('.caja img').on('mouseleave', function() {
+          $(this).css('transform', '');
+        });
       });
-    });
     </script>
   <style>
      .caja {
@@ -81,10 +91,11 @@
           </a>
         </li>
         <li class="nav-item ml-2">
-          <a href="formulario.html"><button class="btn btn-primary">Suscríbete</button></a>
+          <center><a href="formulario.html"><button class="btn btn-primary">Suscríbete</button></a></center>
         </li>
+        <br>
         <li class="nav-item ml-2">
-          <button class="btn btn-danger">Iniciar Sesión</button>
+          <center><button class="btn btn-danger">Iniciar Sesión</button></center>
         </li>
       </ul>
     </div>
@@ -309,6 +320,11 @@
           <p>Grupo X</p>
         </div>
       </footer>
+      
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     </div>
   </div>
 </body>
