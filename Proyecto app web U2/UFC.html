@@ -343,11 +343,14 @@
     <script>
       // Animacion NAV
 $(document).ready(function() {
+  /// Cuando el mouse entra en cualquier elemento dentro de la etiqueta <nav>
   $('nav').on('mouseenter', '*', function() {
+    // Cambiar el color del texto del elemento a blanco
     $(this).css('color', 'white');
   });
-
+// Cuando el mouse sale de cualquier elemento dentro de la etiqueta <nav>
   $('nav').on('mouseleave', '*', function() {
+    // Restablecer el color del texto del elemento al valor original
     $(this).css('color', '');
   });
 });
@@ -356,10 +359,12 @@ $(document).ready(function() {
 // IMAGENES
       $(document).ready(function() {
         $('.caja img').on('mouseenter', function() {
+          // Escalar la imagen al 110% de su tamaño original
           $(this).css('transform', 'scale(1.1)');
         });
 
         $('.caja img').on('mouseleave', function() {
+            // Restablecer la escala de la imagen al tamaño original
           $(this).css('transform', '');
         });
       });
@@ -368,15 +373,17 @@ $(document).ready(function() {
 
 
     $(document).ready(function() {
-        // Mostrar el párrafo sobrepuesto al hacer clic en el botón "Ver más"
+       // Agregar un evento de clic al botón "Ver más" de cada tarjeta
         $('.card .btn-primary').click(function(e) {
             e.preventDefault();
+            // Mostrar u ocultar el párrafo sobrepuesto asociado al botón clickeado
             $(this).siblings('.overlay').toggle();
         });
 
-        // Ocultar el párrafo sobrepuesto al hacer clic en el párrafo mismo
+        // Agregar un evento de clic al párrafo sobrepuesto de cada tarjeta
         $('.card .overlay').click(function(e) {
             e.stopPropagation();
+            // Ocultar el párrafo sobrepuesto al hacer clic en él
             $(this).toggle();
         });
     });
@@ -409,12 +416,12 @@ $(document).ready(function() {
 
  <script>
      $(document).ready(function () {
-         // Agregar un evento de clic al botón "VER MÁS" de cada caja
+        
          $(".btn-scale").on("click", function () {
-             // Obtener el párrafo oculto dentro de la caja actual
+         
              var paragraph = $(this).closest(".card-body").find("p");
 
-             // Mostrar el párrafo oculto utilizando un efecto de desvanecimiento
+            // Se muestra el párrafo oculto utilizando un efecto de desvanecimiento (fadeIn).
              paragraph.fadeIn();
          });
      });
