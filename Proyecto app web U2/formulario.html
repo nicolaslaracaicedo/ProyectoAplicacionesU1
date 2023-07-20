@@ -28,6 +28,12 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             padding: 20px;
         }
+         /* Estilos del formulario... */
+         .error-message {
+                color: red;
+                display: none;
+                font-size: 14px;
+            }
     </style>
    
 </head>
@@ -75,52 +81,128 @@
             </ul>
         </div>
     </nav>
-    <div class="container mt-3">
-        <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-10">
-                <div class="form-container">
-                    <form action="#" class="row mt-3">
-                        <div class="form-group col-lg-6 col-md-12">
-                            <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre">
-                        </div>
-                        <div class="form-group col-lg-6 col-md-12">
-                            <input type="text" class="form-control" placeholder="Apellido" name="password" id="txt">
-                        </div>
-
-                        <div class="form-group col-lg-6 col-md-6 ">
-                            <select name="pais" id="pais" class="form-control">
-                                <option value="ecuador">Ciudad</option>
-                                <option value="Colombia">Manta</option>
-                                <option value="peru">Quito</option>
-                                <option value="venezuela">Guayaquil</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-lg-6 col-md-6">
-                            <select name="pais" id="pais" class="form-control">
-                                <option value="ecuador">Provincia</option>
-                                <option value="Colombia">Manabi</option>
-                                <option value="peru">Pichincha</option>
-                                <option value="venezuela">Guayas</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-12">
-                            <input type="email" class="form-control" placeholder="Correo" name="password"
-                                id="email">
-                        </div>
-
-                        <div class="form-group col-12">
-                            <label for="mensaje">Mensaje</label>
-                            <textarea name="mensaje" id="mensaje" cols="30" rows="10"
-                                class="form-control"></textarea>
-                        </div>
-                        <div class="col-12 text-center mt-3">
-                            <button class="btn btn-primary col-12 col-lg-4 col-md-4 col-sm-12" type="submit">Enviar</button>
-                        </div>
-                    </form>
+    
+    
+   
+        <div class="container mt-3">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-10">
+                    <div class="form-container">
+                        <form action="#" class="row mt-3" id="formulario">
+                            <div class="form-group col-lg-6 col-md-12">
+                                <input type="text" class="form-control" placeholder="Nombre" name="nombre" id="nombre">
+                                <span class="error-message" id="error-nombre">Por favor, ingresa tu nombre.</span>
+                            </div>
+                            <div class="form-group col-lg-6 col-md-12">
+                                <input type="text" class="form-control" placeholder="Apellido" name="apellido" id="apellido">
+                                <span class="error-message" id="error-apellido">Por favor, ingresa tu apellido.</span>
+                            </div>
+    
+                            <div class="form-group col-lg-6 col-md-6 ">
+                                <select name="ciudad" id="ciudad" class="form-control">
+                                    <option value="">Ciudad</option>
+                                    <option value="Manta">Manta</option>
+                                    <option value="Quito">Quito</option>
+                                    <option value="Guayaquil">Guayaquil</option>
+                                </select>
+                                <span class="error-message" id="error-ciudad">Por favor, selecciona una ciudad.</span>
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6">
+                                <select name="provincia" id="provincia" class="form-control">
+                                    <option value="">Provincia</option>
+                                    <option value="Manabi">Manabi</option>
+                                    <option value="Pichincha">Pichincha</option>
+                                    <option value="Guayas">Guayas</option>
+                                </select>
+                                <span class="error-message" id="error-provincia">Por favor, selecciona una provincia.</span>
+                            </div>
+                            <div class="form-group col-12">
+                                <input type="email" class="form-control" placeholder="Correo" name="email" id="email">
+                                <span class="error-message" id="error-email">Por favor, ingresa tu correo electrónico.</span>
+                            </div>
+    
+                            <div class="form-group col-12">
+                                <label for="mensaje">Mensaje</label>
+                                <textarea name="mensaje" id="mensaje" cols="30" rows="10" class="form-control"></textarea>
+                                <span class="error-message" id="error-mensaje">Por favor, ingresa tu mensaje.</span>
+                            </div>
+                            <div class="col-12 text-center mt-3">
+                                <button class="btn btn-primary col-12 col-lg-4 col-md-4 col-sm-12" type="submit">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('#formulario').submit(function(event) {
+                    event.preventDefault(); // Evita que el formulario se envíe automáticamente.
+    
+                    // Obtener los valores de los campos del formulario.
+                    var nombre = $('#nombre').val().trim();
+                    var apellido = $('#apellido').val().trim();
+                    var ciudad = $('#ciudad').val();
+                    var provincia = $('#provincia').val();
+                    var email = $('#email').val().trim();
+                    var mensaje = $('#mensaje').val().trim();
+    
+                    // Ocultar los mensajes de error al enviar el formulario nuevamente.
+                    $('.error-message').hide();
+    
+                    // Validar los campos y mostrar mensajes de error si es necesario.
+                    if (nombre === "") {
+                        $('#error-nombre').show();
+                        return false;
+                    }
+    
+                    if (apellido === "") {
+                        $('#error-apellido').show();
+                        return false;
+                    }
+    
+                    if (ciudad === "") {
+                        $('#error-ciudad').show();
+                        return false;
+                    }
+    
+                    if (provincia === "") {
+                        $('#error-provincia').show();
+                        return false;
+                    }
+    
+                    if (email === "") {
+                        $('#error-email').show();
+                        return false;
+                    } else if (!validarEmail(email)) {
+                        $('#error-email').text('Por favor, ingresa un correo electrónico válido.').show();
+                        return false;
+                    }
+    
+                    if (mensaje === "") {
+                        $('#error-mensaje').show();
+                        return false;
+                    }
+    
+                    // Si todos los campos son válidos, se enviará el formulario.
+                    // Puedes agregar aquí la lógica para enviar el formulario al servidor.
+    
+                    alert("Formulario enviado correctamente.");
+                    return true;
+                });
+    
+                // Función para validar el formato del correo electrónico.
+                function validarEmail(email) {
+                    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    return emailRegex.test(email);
+                }
+            });
+        </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
+    
+    
     <footer class="col-12 mt-2">
         <div class="row justify-content-around mt-3">
             <div class=" col-lg-2 col-md-4 col-sm-6 col-6">
