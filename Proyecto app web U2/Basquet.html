@@ -476,6 +476,15 @@
       }
     );
   });
+  $(document).ready(function() {
+        $('.caja img').on('mouseenter', function() {
+          $(this).css('transform', 'scale(1.1)');
+        });
+
+        $('.caja img').on('mouseleave', function() {
+          $(this).css('transform', '');
+        });
+      });
 </script>
   
   <script>
